@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualités - al moubadara</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="shortcut icon" type="image/png" href="icon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 100px auto 60px auto;
+            padding: 60px 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            color: #2cc167;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #25a557;
+            transform: translateX(-5px);
+        }
+
+        .news-header {
+            border-bottom: 3px solid #2cc167;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2cc167;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .news-date {
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .news-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .news-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2cc167 0%, #1a9d4f 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .news-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="government-website.html">accueil</a></li>
+            <li><a href="evenementm7rez-dynamic.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <main id="mainContent">
+        <div class="loading">Chargement de l'actualité...</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 al moubadara. Tous droits réservés.</p>
+        <p>Au service de la communauté avec dévouement et intégrité.</p>
+    </footer>
+
+    <script>
+        // Embedded news data
+        const newsData = [
+            {
+                "id": 1,
+                "title": "Nouvelle Initiative pour l'Emploi des Jeunes",
+                "date": "10 Février 2026",
+                "summary": "Le gouvernement lance un nouveau programme visant à créer 10,000 emplois pour les jeunes diplômés.",
+                "content": "Ce programme ambitieux comprend des formations professionnelles, des stages en entreprise et un accompagnement personnalisé pour faciliter l'insertion professionnelle des jeunes. Les candidats pourront bénéficier d'un suivi personnalisé tout au long de leur parcours d'insertion. Des partenariats avec les entreprises privées et publiques ont été établis pour garantir la création de postes adaptés aux compétences des jeunes diplômés.",
+                "image": ""
+            },
+            {
+                "id": 2,
+                "title": "Digitalisation des Services Publics",
+                "date": "8 Février 2026",
+                "summary": "Lancement d'une nouvelle plateforme numérique pour simplifier l'accès aux services gouvernementaux.",
+                "content": "La nouvelle plateforme permet aux citoyens d'effectuer leurs démarches administratives en ligne, 24h/24 et 7j/7, sans se déplacer. Cette initiative s'inscrit dans le cadre de la modernisation de l'administration publique et vise à améliorer l'expérience des citoyens. Les services disponibles incluent les demandes de documents officiels, le paiement des taxes, et bien d'autres démarches administratives courantes.",
+                "image": ""
+            },
+            {
+                "id": 3,
+                "title": "Titre actualité",
+                "date": "11 Février 2026",
+                "summary": "Résumé court",
+                "content": "Contenu complet",
+                "image": ""
+            }
+        ];
+
+        // Get news ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const newsId = parseInt(urlParams.get('id'));
+
+        function loadNewsDetails() {
+            const news = newsData.find(n => n.id === newsId);
+
+            if (news) {
+                displayNewsDetails(news);
+            } else {
+                document.getElementById('mainContent').innerHTML = 
+                    '<p style="color: red; text-align: center;">Actualité non trouvée.</p>';
+            }
+        }
+
+        function displayNewsDetails(news) {
+            const container = document.getElementById('mainContent');
+            
+            container.innerHTML = `
+                <a href="government-website.html" class="back-button">← Retour à l'accueil</a>
+                
+                <div class="news-header">
+                    <h1>${news.title}</h1>
+                    <div class="news-date">${news.date}</div>
+                </div>
+
+                ${news.image ? 
+                    `<img src="${news.image}" alt="${news.title}" class="news-image">` : 
+                    '<div class="news-image-placeholder">Image de l\'actualité</div>'
+                }
+
+                <div class="news-content">
+                    <p>${news.content}</p>
+                </div>
+            `;
+        }
+
+        // Load news details when page loads
+        window.addEventListener('DOMContentLoaded', loadNewsDetails);
+    </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus d'information - al moubadara</title>
+    <link rel="icon" type="image/JPEG" href="icon.JPEG">
+    <link rel="shortcut icon" type="image/JPEG" href="icon.JPEG">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 100px auto 60px auto;
+            padding: 60px 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 500px;
+        }
+
+        h1 {
+            color: #2cc167;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 4px solid #2cc167;
+            padding-bottom: 20px;
+        }
+
+        /* Empty content area placeholder */
+        .content-area {
+            padding: 40px;
+            background-color: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        /* Style for when content is added */
+        .content-area p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            text-align: justify;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="m7rez1.html">accueil</a></li>
+            <li><a href="evenementm7rez.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Plus d'information</h1>
+
+        <div class="content-area">
+            <!-- Add your content here -->
+            <p style="color: #999;">Contenu à ajouter ici...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 al moubadara. Tous droits réservés.</p>
+        <p>Au service de la communauté avec dévouement et intégrité.</p>
+    </footer>
+</body>
+</html>

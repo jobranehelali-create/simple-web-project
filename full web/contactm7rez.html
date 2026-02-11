@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - al moubadara</title>
+    <link rel="icon" type="image/JPEG" href="icon.JPEG">
+    <link rel="shortcut icon" type="image/JPEG" href="icon.JPEG">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 100px auto 60px auto;
+            padding: 60px 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2cc167;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 4px solid #2cc167;
+            padding-bottom: 20px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 60px;
+        }
+
+        /* Contact Options Container */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+
+        .contact-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .contact-option:hover {
+            transform: translateY(-10px);
+            background-color: #f9f9f9;
+        }
+
+        .contact-icon {
+            width: 120px;
+            height: 120px;
+            background-color: #2cc167;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(44, 193, 103, 0.3);
+        }
+
+        .contact-option:hover .contact-icon {
+            background-color: #25a557;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(44, 193, 103, 0.5);
+        }
+
+        .contact-icon svg {
+            width: 60px;
+            height: 60px;
+            fill: white;
+        }
+
+        .contact-label {
+            color: #333;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            color: #666;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-container {
+                gap: 40px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="m7rez1.html">accueil</a></li>
+            <li><a href="evenementm7rez.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <h1>Contactez-nous</h1>
+        <p class="subtitle">Nous sommes là pour vous aider. Choisissez votre moyen de contact préféré.</p>
+
+        <div class="contact-container">
+            <!-- Facebook -->
+            <a href="https://facebook.com/yourpage" class="contact-option" target="_blank">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </div>
+                <div class="contact-label">Facebook</div>
+                <div class="contact-info">Suivez-nous sur Facebook</div>
+            </a>
+
+            <!-- Phone -->
+            <a href="tel:+21612345678" class="contact-option">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                </div>
+                <div class="contact-label">Téléphone</div>
+                <div class="contact-info">+216 12 345 678</div>
+            </a>
+
+            <!-- Twitter -->
+            <a href="https://twitter.com/yourhandle" class="contact-option" target="_blank">
+                <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                    </svg>
+                </div>
+                <div class="contact-label">Twitter</div>
+                <div class="contact-info">Suivez-nous sur Twitter</div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 al moubadara. Tous droits réservés.</p>
+        <p>Au service de la communauté avec dévouement et intégrité.</p>
+    </footer>
+</body>
+</html>

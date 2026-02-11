@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Conférence sur le Développement Durable",
+      "date": "15 Mars 2026",
+      "shortDescription": "Rejoignez-nous pour une conférence exceptionnelle sur le développement durable et les initiatives écologiques. Des experts internationaux partageront leurs connaissances et expériences pour un avenir plus vert.",
+      "fullDescription": "Cette conférence abordera les défis environnementaux actuels et présentera des solutions innovantes pour construire un monde plus durable. Au programme : présentations d'experts, tables rondes, ateliers pratiques et sessions de networking.",
+      "image": "event1.jpg",
+      "location": "Centre de Conférences National",
+      "time": "09:00 - 17:00",
+      "organizer": "Ministère de l'Environnement"
+    },
+    {
+      "id": 2,
+      "title": "Forum des Jeunes Entrepreneurs",
+      "date": "22 Mars 2026",
+      "shortDescription": "Un événement dédié aux jeunes entrepreneurs qui souhaitent développer leurs projets et rencontrer des investisseurs potentiels.",
+      "fullDescription": "Au programme : ateliers pratiques, sessions de networking et présentations de startups innovantes. Venez découvrir les opportunités de financement et les conseils d'entrepreneurs à succès. Des mentors expérimentés seront disponibles pour des consultations individuelles.",
+      "image": "event2.jpg",
+      "location": "Palais des Congrès",
+      "time": "10:00 - 18:00",
+      "organizer": "Agence de Promotion de l'Entrepreneuriat"
+    },
+    {
+      "id": 3,
+      "title": "Journée Portes Ouvertes",
+      "date": "5 Avril 2026",
+      "shortDescription": "Découvrez nos installations et rencontrez notre équipe lors de cette journée portes ouvertes.",
+      "fullDescription": "Activités pour toute la famille, démonstrations en direct et présentation de nos services. C'est l'occasion idéale pour mieux comprendre notre mission et comment nous servons la communauté. Entrée gratuite pour tous. Programme : visites guidées, ateliers pour enfants, expositions et animations.",
+      "image": "event3.jpg",
+      "location": "Siège Principal",
+      "time": "08:00 - 16:00",
+      "organizer": "Direction Générale"
+    },
+    {
+        "id": 4,
+        "title": "Nom de votre événement",
+        "date": "25 Juin 2026",
+        "shortDescription": "Description courte",
+        "fullDescription": "Description complète",
+        "image": "nom-image.jpg",
+        "location": "Lieu",
+        "time": "10:00 - 16:00",
+        "organizer": "Organisateur"
+    }
+  ],
+  "news": [
+    {
+      "id": 1,
+      "title": "Nouvelle Initiative pour l'Emploi des Jeunes",
+      "date": "10 Février 2026",
+      "summary": "Le gouvernement lance un nouveau programme visant à créer 10,000 emplois pour les jeunes diplômés.",
+      "content": "Ce programme ambitieux comprend des formations professionnelles, des stages en entreprise et un accompagnement personnalisé pour faciliter l'insertion professionnelle des jeunes.",
+      "image": "news1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Digitalisation des Services Publics",
+      "date": "8 Février 2026",
+      "summary": "Lancement d'une nouvelle plateforme numérique pour simplifier l'accès aux services gouvernementaux.",
+      "content": "La nouvelle plateforme permet aux citoyens d'effectuer leurs démarches administratives en ligne, 24h/24 et 7j/7, sans se déplacer.",
+      "image": "news2.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Titre actualité",
+        "date": "11 Février 2026",
+        "summary": "Résumé court",
+        "content": "Contenu complet",
+        "image": ""
+    }
+  ]
+}

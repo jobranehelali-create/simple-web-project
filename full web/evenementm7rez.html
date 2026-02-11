@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements - al moubadara</title>
+    <link rel="icon" type="image/JPEG" href="icon.JPEG">
+    <link rel="shortcut icon" type="image/JPEG" href="icon.JPEG">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+            padding-top: 130px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        .search-container {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 0;
+            z-index: 999;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #2cc167;
+            border-radius: 25px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar:focus {
+            border-color: #25a557;
+            box-shadow: 0 0 10px rgba(44, 193, 103, 0.2);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px 60px 40px;
+        }
+
+        h1 {
+            color: #2cc167;
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 4px solid #2cc167;
+            padding-bottom: 20px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: white;
+            border-left: 4px solid #2cc167;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .section:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        a.section {
+            display: flex;
+        }
+
+        .section-content {
+            flex: 1;
+        }
+
+        .section-content h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .event-date {
+            color: #2cc167;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .section-content p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            text-align: justify;
+        }
+
+        .section-image {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #2cc167 0%, #1a9d4f 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 140px;
+            }
+
+            .section {
+                flex-direction: column;
+            }
+
+            .section-image {
+                width: 100%;
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="m7rez1.html">accueil</a></li>
+            <li><a href="evenementm7rez.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" class="search-bar" id="searchBar" placeholder="Rechercher un événement...">
+        </div>
+    </div>
+
+    <main id="mainContent">
+        <h1>Événements</h1>
+        <div id="eventsContainer" class="loading">Chargement des événements...</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 al moubadara. Tous droits réservés.</p>
+        <p>Au service de la communauté avec dévouement et intégrité.</p>
+    </footer>
+
+    <script>
+        // Embedded data (works without a server)
+        const eventsData = {
+            "events": [
+                {
+                    "id": 1,
+                    "title": "Conférence sur le Développement Durable",
+                    "date": "15 Mars 2026",
+                    "shortDescription": "Rejoignez-nous pour une conférence exceptionnelle sur le développement durable et les initiatives écologiques. Des experts internationaux partageront leurs connaissances et expériences pour un avenir plus vert.",
+                    "fullDescription": "Cette conférence abordera les défis environnementaux actuels et présentera des solutions innovantes pour construire un monde plus durable. Au programme : présentations d'experts, tables rondes, ateliers pratiques et sessions de networking.",
+                    "image": "",
+                    "location": "Centre de Conférences National",
+                    "time": "09:00 - 17:00",
+                    "organizer": "Ministère de l'Environnement"
+                },
+                {
+                    "id": 2,
+                    "title": "Forum des Jeunes Entrepreneurs",
+                    "date": "22 Mars 2026",
+                    "shortDescription": "Un événement dédié aux jeunes entrepreneurs qui souhaitent développer leurs projets et rencontrer des investisseurs potentiels.",
+                    "fullDescription": "Au programme : ateliers pratiques, sessions de networking et présentations de startups innovantes. Venez découvrir les opportunités de financement et les conseils d'entrepreneurs à succès. Des mentors expérimentés seront disponibles pour des consultations individuelles.",
+                    "image": "",
+                    "location": "Palais des Congrès",
+                    "time": "10:00 - 18:00",
+                    "organizer": "Agence de Promotion de l'Entrepreneuriat"
+                },
+                {
+                    "id": 3,
+                    "title": "Journée Portes Ouvertes",
+                    "date": "5 Avril 2026",
+                    "shortDescription": "Découvrez nos installations et rencontrez notre équipe lors de cette journée portes ouvertes.",
+                    "fullDescription": "Activités pour toute la famille, démonstrations en direct et présentation de nos services. C'est l'occasion idéale pour mieux comprendre notre mission et comment nous servons la communauté. Entrée gratuite pour tous. Programme : visites guidées, ateliers pour enfants, expositions et animations.",
+                    "image": "",
+                    "location": "Siège Principal",
+                    "time": "08:00 - 16:00",
+                    "organizer": "Direction Générale"
+                },
+                {
+                    "id": 4,
+                    "title": "Nom de votre événement",
+                    "date": "25 Juin 2026",
+                    "shortDescription": "Description courte",
+                    "fullDescription": "Description complète",
+                    "image": "nom-image.jpg",
+                    "location": "Lieu",
+                    "time": "10:00 - 16:00",
+                    "organizer": "Organisateur"
+                }
+            ]
+        };
+
+        // Load events from embedded data
+        function loadEvents() {
+            displayEvents(eventsData.events);
+        }
+
+        function displayEvents(events) {
+            const container = document.getElementById('eventsContainer');
+            container.innerHTML = '';
+            container.classList.remove('loading');
+
+            events.forEach(event => {
+                const eventElement = document.createElement('a');
+                eventElement.href = `event-details.html?id=${event.id}`;
+                eventElement.className = 'section event-item';
+                eventElement.setAttribute('data-title', event.title.toLowerCase());
+                eventElement.setAttribute('data-date', event.date.toLowerCase());
+                eventElement.setAttribute('data-description', event.shortDescription.toLowerCase());
+
+                eventElement.innerHTML = `
+                    <div class="section-content">
+                        <div class="event-date">${event.date}</div>
+                        <h2>${event.title}</h2>
+                        <p>${event.shortDescription}</p>
+                    </div>
+                    <div class="section-image">
+                        ${event.image ? 
+                            `<img src="${event.image}" alt="${event.title}">` : 
+                            '<div>Image de l\'événement<br>(300×200)</div>'
+                        }
+                    </div>
+                `;
+
+                container.appendChild(eventElement);
+            });
+
+            // Setup search functionality
+            setupSearch();
+        }
+
+        function setupSearch() {
+            const searchBar = document.getElementById('searchBar');
+            const eventItems = document.querySelectorAll('.event-item');
+
+            searchBar.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+
+                eventItems.forEach(item => {
+                    const title = item.getAttribute('data-title');
+                    const description = item.getAttribute('data-description');
+                    const date = item.getAttribute('data-date');
+
+                    if (title.includes(searchTerm) || description.includes(searchTerm) || date.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                        item.style.animation = 'fadeIn 0.3s ease';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Load events when page loads
+        window.addEventListener('DOMContentLoaded', loadEvents);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

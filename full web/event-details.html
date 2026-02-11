@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de l'événement - al moubadara</title>
+    <link rel="icon" type="image/JPEG" href="icon.JPEG">
+    <link rel="shortcut icon" type="image/JPEG" href="icon.JPEG">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 100px auto 60px auto;
+            padding: 60px 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            color: #2cc167;
+            text-decoration: none;
+            margin-bottom: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: #25a557;
+            transform: translateX(-5px);
+        }
+
+        .event-header {
+            border-bottom: 3px solid #2cc167;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2cc167;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .event-date {
+            color: #666;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .event-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .event-image-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #2cc167 0%, #1a9d4f 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .event-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-item strong {
+            color: #2cc167;
+            min-width: 120px;
+        }
+
+        .event-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: justify;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul li a {
+                padding: 15px 20px;
+                font-size: 14px;
+            }
+
+            main {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="m7rez1.html">accueil</a></li>
+            <li><a href="evenementm7rez.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <main id="mainContent">
+        <div class="loading">Chargement de l'événement...</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 al moubadara. Tous droits réservés.</p>
+        <p>Au service de la communauté avec dévouement et intégrité.</p>
+    </footer>
+
+    <script>
+        // Embedded data (same as events page)
+        const eventsData = {
+            "events": [
+                {
+                    "id": 1,
+                    "title": "Conférence sur le Développement Durable",
+                    "date": "15 Mars 2026",
+                    "shortDescription": "Rejoignez-nous pour une conférence exceptionnelle sur le développement durable et les initiatives écologiques. Des experts internationaux partageront leurs connaissances et expériences pour un avenir plus vert.",
+                    "fullDescription": "Cette conférence abordera les défis environnementaux actuels et présentera des solutions innovantes pour construire un monde plus durable. Au programme : présentations d'experts, tables rondes, ateliers pratiques et sessions de networking.",
+                    "image": "",
+                    "location": "Centre de Conférences National",
+                    "time": "09:00 - 17:00",
+                    "organizer": "Ministère de l'Environnement"
+                },
+                {
+                    "id": 2,
+                    "title": "Forum des Jeunes Entrepreneurs",
+                    "date": "22 Mars 2026",
+                    "shortDescription": "Un événement dédié aux jeunes entrepreneurs qui souhaitent développer leurs projets et rencontrer des investisseurs potentiels.",
+                    "fullDescription": "Au programme : ateliers pratiques, sessions de networking et présentations de startups innovantes. Venez découvrir les opportunités de financement et les conseils d'entrepreneurs à succès. Des mentors expérimentés seront disponibles pour des consultations individuelles.",
+                    "image": "",
+                    "location": "Palais des Congrès",
+                    "time": "10:00 - 18:00",
+                    "organizer": "Agence de Promotion de l'Entrepreneuriat"
+                },
+                {
+                    "id": 3,
+                    "title": "Journée Portes Ouvertes",
+                    "date": "5 Avril 2026",
+                    "shortDescription": "Découvrez nos installations et rencontrez notre équipe lors de cette journée portes ouvertes.",
+                    "fullDescription": "Activités pour toute la famille, démonstrations en direct et présentation de nos services. C'est l'occasion idéale pour mieux comprendre notre mission et comment nous servons la communauté. Entrée gratuite pour tous. Programme : visites guidées, ateliers pour enfants, expositions et animations.",
+                    "image": "",
+                    "location": "Siège Principal",
+                    "time": "08:00 - 16:00",
+                    "organizer": "Direction Générale"
+                }
+            ],
+            "news": [
+                {
+                    "id": 1,
+                    "title": "Nouvelle Initiative pour l'Emploi des Jeunes",
+                    "date": "10 Février 2026",
+                    "summary": "Le gouvernement lance un nouveau programme visant à créer 10,000 emplois pour les jeunes diplômés.",
+                    "content": "Ce programme ambitieux comprend des formations professionnelles, des stages en entreprise et un accompagnement personnalisé pour faciliter l'insertion professionnelle des jeunes.",
+                    "image": ""
+                },
+                {
+                    "id": 2,
+                    "title": "Digitalisation des Services Publics",
+                    "date": "8 Février 2026",
+                    "summary": "Lancement d'une nouvelle plateforme numérique pour simplifier l'accès aux services gouvernementaux.",
+                    "content": "La nouvelle plateforme permet aux citoyens d'effectuer leurs démarches administratives en ligne, 24h/24 et 7j/7, sans se déplacer.",
+                    "image": ""
+                },
+                {
+                    "id": 4,
+                    "title": "Nom de votre événement",
+                    "date": "25 Juin 2026",
+                    "shortDescription": "Description courte",
+                    "fullDescription": "Description complète",
+                    "image": "nom-image.jpg",
+                    "location": "Lieu",
+                    "time": "10:00 - 16:00",
+                    "organizer": "Organisateur"
+                }
+            ]
+        };
+
+        // Get event ID from URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = parseInt(urlParams.get('id'));
+
+        function loadEventDetails() {
+            const event = eventsData.events.find(e => e.id === eventId);
+
+            if (event) {
+                displayEventDetails(event);
+            } else {
+                document.getElementById('mainContent').innerHTML = 
+                    '<p style="color: red; text-align: center;">Événement non trouvé.</p>';
+            }
+        }
+
+        function displayEventDetails(event) {
+            const container = document.getElementById('mainContent');
+            
+            container.innerHTML = `
+                <a href="evenementm7rez-dynamic.html" class="back-button">← Retour aux événements</a>
+                
+                <div class="event-header">
+                    <h1>${event.title}</h1>
+                    <div class="event-date">${event.date}</div>
+                </div>
+
+                ${event.image ? 
+                    `<img src="${event.image}" alt="${event.title}" class="event-image">` : 
+                    '<div class="event-image-placeholder">Image de l\'événement</div>'
+                }
+
+                <div class="event-details">
+                    ${event.time ? `
+                        <div class="detail-item">
+                            <strong>🕐 Horaire:</strong>
+                            <span>${event.time}</span>
+                        </div>
+                    ` : ''}
+                    
+                    ${event.location ? `
+                        <div class="detail-item">
+                            <strong>📍 Lieu:</strong>
+                            <span>${event.location}</span>
+                        </div>
+                    ` : ''}
+                    
+                    ${event.organizer ? `
+                        <div class="detail-item">
+                            <strong>👤 Organisateur:</strong>
+                            <span>${event.organizer}</span>
+                        </div>
+                    ` : ''}
+                </div>
+
+                <div class="event-description">
+                    <p>${event.fullDescription || event.shortDescription}</p>
+                </div>
+            `;
+        }
+
+        // Load event details when page loads
+        window.addEventListener('DOMContentLoaded', loadEventDetails);
+    </script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>al moubadara</title>
+    <link rel="icon" type="image/JPEG" href="icon.JPEG">
+    <link rel="shortcut icon" type="image/JPEG" href="icon.JPEG">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F2F2F2;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #2cc167;
+            padding: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 40px;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background-color: white;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        /* Hero Image Container */
+        .hero-container {
+            width: 100%;
+            margin-top: 60px;
+            overflow: hidden;
+            position: relative;
+            height: auto;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1080px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            transform-origin: top center;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background-color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        main h1 {
+            color: #2cc167;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2cc167;
+            padding-bottom: 15px;
+        }
+
+        main h2 {
+            color: #333;
+            font-size: 1.8rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        main p {
+            color: #555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #2cc167;
+            border-radius: 4px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #2cc167;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(44, 193, 103, 0.3);
+        }
+
+        .cta-button:hover {
+            background-color: #25a557;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(44, 193, 103, 0.4);
+        }
+
+        /* News Container */
+        .news-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .news-item {
+            background-color: white;
+            padding: 20px;
+            border-left: 4px solid #2cc167;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item h3 {
+            color: #2cc167;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .news-date {
+            color: #999;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .news-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        /* Placeholder for missing image */
+        .image-placeholder {
+            width: 100%;
+            max-width: 1080px;
+            height: 1350px;
+            background: linear-gradient(135deg, #2cc167 0%, #1a9d4f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            margin: 0 auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="m7rez1.html">accueil</a></li>
+            <li><a href="evenementm7rez.html">evenement</a></li>
+            <li><a href="contactm7rez.html">contact</a></li>
+            <li><a href="plusm7rez.html">plus d'information</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Image Section -->
+    <div class="hero-container" id="heroContainer">
+        <img src="m7rezimag.JPEG" alt="Welcome Banner" class="hero-image">
+    </div>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <h1>Welcome to the Government Portal</h1>
+        
+        <div class="section">
+            <h2>Actualités Récentes</h2>
+            <div id="newsContainer" class="news-container">
+                <p style="text-align: center; color: #666;">Chargement des actualités...</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Our Mission</h2>
+            <p>
+                We are dedicated to serving the public with transparency, efficiency, and integrity. 
+                Our mission is to provide accessible government services and information to all citizens, 
+                ensuring that your needs are met with the highest standards of professionalism.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Services Offered</h2>
+            <p>
+                Our comprehensive range of services includes document processing, permits and licenses, 
+                public records access, and citizen support programs. We strive to make government services 
+                more accessible and user-friendly through our digital platforms and dedicated staff.
+            </p>
+            <a href="#services" class="cta-button">Explore Services</a>
+        </div>
+
+        <div class="section">
+            <h2>Stay Informed</h2>
+            <p>
+                Keep up to date with the latest announcements, policy changes, and community initiatives. 
+                We believe in transparent communication and keeping our citizens informed about matters 
+                that affect their lives and communities.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Get in Touch</h2>
+            <p>
+                Have questions or need assistance? Our team is here to help. Contact us through our 
+                various channels or visit one of our offices. We're committed to providing prompt and 
+                helpful responses to all inquiries.
+            </p>
+            <a href="contactm7rez.html" class="cta-button">Contact Us</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Government Portal. All rights reserved.</p>
+        <p>Serving the community with dedication and integrity.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll-based animation for hero image and main content
+        const heroContainer = document.getElementById('heroContainer');
+        const mainContent = document.getElementById('mainContent');
+        const heroImage = heroContainer.querySelector('.hero-image') || heroContainer.querySelector('.image-placeholder');
+        
+        // Create wrapper for smooth transitions
+        let scrollTimeout;
+        
+        function updateLayout() {
+            const scrollY = window.scrollY;
+            const heroHeight = heroContainer.offsetHeight;
+            const threshold = 200; // Start animation after scrolling 200px
+            
+            if (scrollY > threshold) {
+                // Calculate how much to shrink (0 to 1)
+                const shrinkAmount = Math.min((scrollY - threshold) / 400, 1);
+                
+                // Apply smooth transform to hero
+                const scale = 1 - (shrinkAmount * 0.7); // Shrink to 30% of original size
+                const opacity = 1 - shrinkAmount;
+                const translateY = -(shrinkAmount * 300); // Move up
+                
+                if (heroImage) {
+                    heroImage.style.transform = `translateY(${translateY}px) scale(${scale})`;
+                    heroImage.style.opacity = opacity;
+                }
+                
+                // Move main content up
+                const mainTranslateY = -(shrinkAmount * (heroHeight - 100));
+                mainContent.style.transform = `translateY(${mainTranslateY}px)`;
+                mainContent.style.opacity = 1;
+                
+            } else {
+                // Reset when scrolling back to top
+                const fadeIn = scrollY / threshold;
+                if (heroImage) {
+                    heroImage.style.transform = 'translateY(0) scale(1)';
+                    heroImage.style.opacity = 1;
+                }
+                mainContent.style.transform = 'translateY(0)';
+                mainContent.style.opacity = fadeIn;
+            }
+        }
+
+        // Use requestAnimationFrame for smooth 60fps animation
+        let rafId = null;
+        function onScroll() {
+            if (rafId) {
+                cancelAnimationFrame(rafId);
+            }
+            rafId = requestAnimationFrame(updateLayout);
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        
+        // Set initial styles
+        if (heroImage) {
+            heroImage.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        }
+        mainContent.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+        mainContent.style.opacity = '0';
+        
+        // Initial update
+        updateLayout();
+
+        // Load and display news
+        const newsData = [
+            {
+                "id": 1,
+                "title": "Nouvelle Initiative pour l'Emploi des Jeunes",
+                "date": "10 Février 2026",
+                "summary": "Le gouvernement lance un nouveau programme visant à créer 10,000 emplois pour les jeunes diplômés.",
+                "content": "Ce programme ambitieux comprend des formations professionnelles, des stages en entreprise et un accompagnement personnalisé pour faciliter l'insertion professionnelle des jeunes.",
+                "image": ""
+            },
+            {
+                "id": 2,
+                "title": "Digitalisation des Services Publics",
+                "date": "8 Février 2026",
+                "summary": "Lancement d'une nouvelle plateforme numérique pour simplifier l'accès aux services gouvernementaux.",
+                "content": "La nouvelle plateforme permet aux citoyens d'effectuer leurs démarches administratives en ligne, 24h/24 et 7j/7, sans se déplacer.",
+                "image": ""
+            },
+            {
+                "id": 3,
+                "title": "Titre actualité",
+                "date": "11 Février 2026",
+                "summary": "Résumé court",
+                "content": "Contenu complet",
+                "image": ""
+            }
+        ];
+
+        function loadNews() {
+            const newsContainer = document.getElementById('newsContainer');
+            newsContainer.innerHTML = '';
+
+            newsData.forEach(news => {
+                const newsElement = document.createElement('a');
+                newsElement.href = `news-details.html?id=${news.id}`;
+                newsElement.className = 'news-item';
+                
+                newsElement.innerHTML = `
+                    <h3>${news.title}</h3>
+                    <div class="news-date">${news.date}</div>
+                    <p>${news.summary}</p>
+                `;
+                
+                newsContainer.appendChild(newsElement);
+            });
+        }
+
+        // Load news when page loads
+        window.addEventListener('DOMContentLoaded', loadNews);
+    </script>
+</body>
+</html>
